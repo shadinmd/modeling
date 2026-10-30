@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtualenv & Environment
+.env
+.env.local
+
+# PyTorch / Accelerate / Hugging Face cache
+.cache/
+hf_cache/
+*.pt
+*.bin
+*.safetensors
+
+# Training outputs & Checkpoints
+outputs/
+checkpoints/
+runs/
+wandb/
+
+# Personal data files (keep sample data tracked)
+data/*.jsonl
+data/*.csv
+data/*.txt
+!data/sample_personal_data.jsonl
+
+# OS files
+.DS_Store
+Thumbs.db

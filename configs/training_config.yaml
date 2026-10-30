@@ -1,0 +1,58 @@
+# ==============================================================================
+# Training Configuration for Liquid AI LFM3-1.7B
+# ==============================================================================
+
+model:
+  # Base or instruct model identifier
+  # Use "LiquidAI/LFM3-1.7B" for instruction/chat-tuning or "LiquidAI/LFM3-1.7B-Base" for raw text/CPT
+  model_id: "LiquidAI/LFM3-1.7B"
+  trust_remote_code: true
+  # "bfloat16", "float16", or "auto"
+  torch_dtype: "bfloat16"
+  # Target device: "auto", "mps", "cuda", or "cpu"
+  device_map: "auto"
+
+peft:
+  # LoRA parameters
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  bias: "none"
+  task_type: "CAUSAL_LM"
+  # Targets tri-hybrid attention and feed-forward linear projections
+  # Can be "all-linear" or explicit module names
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+data:
+  train_file: "data/train.jsonl"
+  val_file: "data/val.jsonl"
+  # Maximum sequence length to truncate or pad
+  max_seq_length: 2048
+  # Chat formatting style: "messages" (standard ChatML/Liquid AI messages) or "alpaca"
+  format_type: "messages"
+
+training:
+  output_dir: "outputs/lfm3-1.7b-personal-adapter"
+  num_train_epochs: 3
+  per_device_train_batch_size: 2
+  per_device_eval_batch_size: 2
+  gradient_accumulation_steps: 4
+  learning_rate: 0.0002
+  lr_scheduler_type: "cosine"
+  warmup_ratio: 0.05
+  weight_decay: 0.01
+  logging_steps: 5
+  eval_strategy: "epoch"
+  save_strategy: "epoch"
+  save_total_limit: 2
+  load_best_model_at_end: true
+  gradient_checkpointing: false # Set to true to save ~50% VRAM at the cost of ~20% speed
+  report_to: "none" # Change to "tensorboard" or "wandb" if desired
+  seed: 42
