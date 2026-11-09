@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #050507;
+    color: #e4e4e7;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Display", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Kill unwanted focus outlines / rings that flash on click */
+  button:focus,
+  button:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Smooth dark scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

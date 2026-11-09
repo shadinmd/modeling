@@ -1,0 +1,30 @@
+# ==============================================================================
+# Personal Assistant Core Profile & State
+# This file is loaded dynamically into the assistant's system context.
+# ==============================================================================
+
+user:
+  name: "Shadin"
+  role: "Software & AI Systems Engineer"
+  location: "India"
+  country_code: "IN"
+  currency: "INR (₹)"
+  timezone: "Asia/Kolkata"
+  tone_preference: "Direct, technically precise, concise, no conversational filler"
+
+preferences:
+  code_style: "Clean modular architecture, modern APIs, complete runnable examples"
+  tech_stack:
+    frontend: "React, Vite, Next.js, Tailwind CSS, TypeScript"
+    backend: "Python (PyTorch, FastAPI), Go, Supabase"
+    modeling: "Hugging Face, PEFT, LoRA, Liquid AI LFM3, Apple Silicon MPS"
+  privacy_rules: "All notes, code, and personal details remain strictly local on-device"
+
+active_projects:
+  - name: "modeling"
+    description: "Personal fine-tuning and 24/7 on-device assistant using Liquid AI LFM3-1.7B"
+    status: "active"
+
+quick_facts:
+  - "Prefers Apple Silicon MPS optimization for local model inference."
+  - "Uses LM Studio and CLI tools for local model management."

@@ -4,9 +4,6 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
-venv/
-.venv/
 build/
 develop-eggs/
 dist/
@@ -23,9 +20,16 @@ wheels/
 .installed.cfg
 *.egg
 
-# Virtualenv & Environment
-.env
-.env.local
+# Virtual environments (dedicated in backend & training)
+venv/
+.venv/
+*/venv/
+*/.venv/
+
+# Node / Frontend
+node_modules/
+frontend/node_modules/
+frontend/dist/
 
 # PyTorch / Accelerate / Hugging Face cache
 .cache/
@@ -40,11 +44,11 @@ checkpoints/
 runs/
 wandb/
 
-# Personal data files (keep sample data tracked)
-data/*.jsonl
-data/*.csv
-data/*.txt
-!data/sample_personal_data.jsonl
+# Personal data files
+training/data/*.jsonl
+training/data/*.csv
+training/data/*.txt
+!training/data/sample_personal_data.jsonl
 
 # OS files
 .DS_Store
